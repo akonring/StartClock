@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+ <!-- Application specific strings -->   
+	<string name="app_name">StartClock</string>
+    <string name="title_prefs">Preferences</string>
+    <string name="title_exit">Exit StartClock</string>
+    
+ <!-- This deals with the categories -->
+    <string name="sound_cat">Sound</string>
+    <string name="sound_cat_sum">Edit your sound preferences</string>
+    
+    <string name="screen_cat">Screen</string>
+    <string name="screen_cat_sum">Customize your screen settings</string>
+    
+    <string name="beep_interval">Beep Interval</string>
+    <string name="beep_interval_summary">Set the beep interval for the clock</string>
+    
+    <string name="about">About</string>
+    <string name="about_sum">Information about StartClock</string>
+        
+ <!-- This is the actual options in the preferenceScreens -->    
+    <string name="mute">Mute</string>
+    <string name="mute_summary">Mute the beep sound</string>
+    
+    <string name="screen_dim">Screen Dim</string>
+    <string name="screen_dim_summary">Prevent your screen from entering hibernation mode</string>
+    
+    <string name="format">Display Format</string>
+    <string name="format_summary">Choose your display formats</string>
+    
+    <string name="indigo">Indigo Mode</string>
+    <string name="indigo_summary">Switch to night mode</string>
+    
+</resources>

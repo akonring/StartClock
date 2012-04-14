@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory 
+        android:key="sound_cat"
+        android:title="@string/sound_cat"
+        android:summary="@string/sound_cat_sum">
+	    <CheckBoxPreference 
+	        android:key="sound"
+	        android:title="@string/mute"
+	        android:summary="@string/mute_summary"
+	        android:icon="@drawable/ic_audio_vol" />
+	    <ListPreference 
+		        android:key="beep_interval"
+		        android:title="@string/beep_interval"
+		        android:summary="@string/beep_interval_summary"
+		        android:entries="@array/beep_interval_options"
+		        android:entryValues="@array/beep_interval_option_values"
+		        android:defaultValue="2"
+		        android:icon="@drawable/ic_audio_alarm" />	    
+    </PreferenceCategory>
+    <PreferenceCategory 
+        android:key="screen"
+        android:title="@string/screen_cat"
+        android:summary="@string/screen_cat_sum">
+	    <CheckBoxPreference 
+	        android:key="screen_dim"
+	        android:title="@string/screen_dim"
+	        android:summary="@string/screen_dim_summary"
+	        android:icon="@drawable/ic_menu_view" />
+	    <ListPreference 
+		        android:key="format"
+		        android:title="@string/format"
+		        android:summary="@string/format_summary"
+		        android:entries="@array/format_options"
+		        android:entryValues="@array/format_option_values"
+		        android:defaultValue="0"
+		        android:icon="@drawable/ic_menu_edit" />
+	    <CheckBoxPreference 
+	        android:key="indigo"
+	        android:title="@string/indigo"
+	        android:summary="@string/indigo_summary"
+	        android:icon="@drawable/brightness" />
+   </PreferenceCategory>
+   <PreferenceCategory
+        android:title="@string/about" 
+        android:summary="@string/about_sum" >	       
+   <ListPreference
+       android:key="version_build"
+       android:enabled="false"
+       android:title="version 1.01"
+       android:summary="build 3"  /> 
+   </PreferenceCategory>  
+</PreferenceScreen>
