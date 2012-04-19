@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+   <PreferenceCategory 
+        android:key="time_settings"
+        android:title="@string/time_settings"
+        android:summary="@string/time_settings_summary">
+    	<app.timer.TimePreference
+            android:key="synchronize"
+	    	android:title="@string/synchronize" 
+	       	android:summary="@string/synchronize_summary" 
+	       	android:dialogLayout="@layout/time_preference"
+	      	android:icon="@drawable/ic_dialog_time"
+	      	android:positiveButtonText="@string/synchronize_set_button"
+        	android:negativeButtonText="@string/synchronize_cancel_button"	 />  
+    </PreferenceCategory>
     <PreferenceCategory 
         android:key="sound_cat"
         android:title="@string/sound_cat"
-        android:summary="@string/sound_cat_sum">
+        android:summary="@string/sound_cat_summary">
 	    <CheckBoxPreference 
-	        android:key="sound"
+	        android:key="mute"
 	        android:title="@string/mute"
 	        android:summary="@string/mute_summary"
 	        android:icon="@drawable/ic_audio_vol" />
@@ -21,7 +34,7 @@
     <PreferenceCategory 
         android:key="screen"
         android:title="@string/screen_cat"
-        android:summary="@string/screen_cat_sum">
+        android:summary="@string/screen_cat_summary">
 	    <CheckBoxPreference 
 	        android:key="screen_dim"
 	        android:title="@string/screen_dim"
@@ -34,7 +47,9 @@
 		        android:entries="@array/format_options"
 		        android:entryValues="@array/format_option_values"
 		        android:defaultValue="0"
-		        android:icon="@drawable/ic_menu_edit" />
+		        android:icon="@drawable/ic_menu_edit"
+		        
+		         />
 	    <CheckBoxPreference 
 	        android:key="indigo"
 	        android:title="@string/indigo"
@@ -43,7 +58,7 @@
    </PreferenceCategory>
    <PreferenceCategory
         android:title="@string/about" 
-        android:summary="@string/about_sum" >	       
+        android:summary="@string/about_summary" >	       
    <ListPreference
        android:key="version_build"
        android:enabled="false"

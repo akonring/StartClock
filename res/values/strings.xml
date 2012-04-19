@@ -6,24 +6,30 @@
     <string name="title_exit">Exit StartClock</string>
     
  <!-- This deals with the categories -->
+ 	<string name="time_settings">Time Settings</string>
+ 	<string name="time_settings_summary">Change your time settings</string>
+ 	
     <string name="sound_cat">Sound</string>
-    <string name="sound_cat_sum">Edit your sound preferences</string>
+    <string name="sound_cat_summary">Edit your sound preferences</string>
     
     <string name="screen_cat">Screen</string>
-    <string name="screen_cat_sum">Customize your screen settings</string>
+    <string name="screen_cat_summary">Customize your screen settings</string>
     
-    <string name="beep_interval">Beep Interval</string>
-    <string name="beep_interval_summary">Set the beep interval for the clock</string>
-    
-    <string name="about">About</string>
-    <string name="about_sum">Information about StartClock</string>
         
  <!-- This is the actual options in the preferenceScreens -->    
+    <string name="synchronize">Synchronize</string>
+    <string name="synchronize_summary">Set the StartClock</string>
+    <string name="synchronize_set_button">Set Clock</string>
+    <string name="synchronize_cancel_button">Cancel</string>
+    <string name="synchronize_real_time">Real Time</string>
+    <string name="synchronize_manual">Manual Setting</string>
+    
+    
     <string name="mute">Mute</string>
     <string name="mute_summary">Mute the beep sound</string>
     
     <string name="screen_dim">Screen Dim</string>
-    <string name="screen_dim_summary">Prevent your screen from entering hibernation mode</string>
+    <string name="screen_dim_summary">Prevent your screen from hibernating</string>
     
     <string name="format">Display Format</string>
     <string name="format_summary">Choose your display formats</string>
@@ -31,4 +37,10 @@
     <string name="indigo">Indigo Mode</string>
     <string name="indigo_summary">Switch to night mode</string>
     
+	<string name="beep_interval">Beep Interval</string>
+    <string name="beep_interval_summary">Set the beep interval for the clock</string>
+    
+    <string name="about">About</string>
+    <string name="about_summary">Information about StartClock</string>
+
 </resources>

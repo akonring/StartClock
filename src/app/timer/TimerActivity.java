@@ -4,29 +4,55 @@ import java.util.Calendar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewManager;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Chronometer;
-
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+/** 
+ * This class is controlling the main view of the application.
+ * The responsibilities of the class are mainly screen-related
+ * A chronometer reference is given to display the chronometer from
+ * TimerApplication
+ * @author ako
+ *
+ */
 public class TimerActivity extends Activity {
 
-	Chronometer chrono;
-	Calendar rightNow;
-	boolean isStopped;
+	//Getting a reference to the TimerApplication
 	TimerApplication timer;
-		
+	
+	/**
+	 * This method gets called when starting the application (see manifest)
+	 * The use of getGlobalChronometer makes a loose coupling to the app.
+	 * Surprisingly also called when rotating the screen which is the reason
+	 * for the ugly check for null.
+	 * GlobalChronometer cannot be a child to two parents and that is why we have
+	 * to remove the child if it there.
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
 		timer = ((TimerApplication)getApplication());
+		RelativeLayout layout = new RelativeLayout(this);
 		
-		timer.global_chrono = (Chronometer) findViewById(R.id.chrono);
-		timer.initiateClock();		
+		if(timer.getGlobalChronometer().getParent() != null) {
+			((ViewGroup) timer.getGlobalChronometer().getParent()).removeView(timer.getGlobalChronometer());
+		}
+		RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+		timer.getGlobalChronometer().setLayoutParams(layoutParams);
+		layout.addView(timer.getGlobalChronometer());
+		setContentView(layout);
 	}
+	
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();

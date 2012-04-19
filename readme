@@ -1,0 +1,9 @@
+The best approach dealing the chronometer issue::
+
+Do not instatiate object in the activity, but keep the chronometer in application
+This implies using textstrings in activity as chronometer, but how to listen?
+Maybe bind the chronometer-view to the global chronometer.. but how?
+
+Having time offset when resetting the view and creating the view will deal with it
+which methods gets called when?
+
