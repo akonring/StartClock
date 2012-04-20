@@ -8,7 +8,6 @@ import android.preference.DialogPreference;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.TimePicker.OnTimeChangedListener;
 import android.widget.ToggleButton;

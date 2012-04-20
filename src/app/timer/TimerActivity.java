@@ -1,22 +1,16 @@
 package app.timer;
 
-import java.util.Calendar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewManager;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
-import android.widget.Chronometer;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
 /** 
  * This class is controlling the main view of the application.
  * The responsibilities of the class are mainly screen-related
@@ -34,7 +28,7 @@ public class TimerActivity extends Activity {
 	 * This method gets called when starting the application (see manifest)
 	 * The use of getGlobalChronometer makes a loose coupling to the app.
 	 * Surprisingly also called when rotating the screen which is the reason
-	 * for the ugly check for null.
+	 * for the ugly null check.
 	 * GlobalChronometer cannot be a child to two parents and that is why we have
 	 * to remove the child if it there.
 	 */
@@ -53,13 +47,19 @@ public class TimerActivity extends Activity {
 		setContentView(layout);
 	}
 	
-	
+	/**
+	 * Used to inflate the menu using the menu.xml
+	 */
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.menu, menu);
 	    return true;
 	}
 	
+	/**
+	 * All the screen related preferences are dealt with.
+	 * calls editListener to change Chronometer preferences
+	 */
 	public void onResume() {
 		super.onResume();
 		WindowManager.LayoutParams lp = getWindow().getAttributes();
@@ -78,6 +78,10 @@ public class TimerActivity extends Activity {
 		timer.editListener();
 	}
 	
+	/**
+	 * Call the preference menu or exit. Exit is a rough
+	 * execution - may have to ease up a little.. 
+	 */
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    if(item.getItemId() == R.id.prefs) {
 			startActivityForResult(new Intent(this, app.timer.PrefsActivity.class), 0);
