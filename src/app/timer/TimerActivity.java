@@ -2,7 +2,9 @@ package app.timer;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /** 
  * This class is controlling the main view of the application.
@@ -35,15 +38,25 @@ public class TimerActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		timer = ((TimerApplication)getApplication());
+		TextView text = new TextView(this);
 		RelativeLayout layout = new RelativeLayout(this);
+		Typeface monacoTypeface = Typeface.createFromAsset(this.getAssets(),"monaco.ttf");
 		
 		if(timer.getGlobalChronometer().getParent() != null) {
 			((ViewGroup) timer.getGlobalChronometer().getParent()).removeView(timer.getGlobalChronometer());
 		}
-		RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
-		timer.getGlobalChronometer().setLayoutParams(layoutParams);
+		RelativeLayout.LayoutParams chronoLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		chronoLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+		textLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		textLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+		timer.getGlobalChronometer().setLayoutParams(chronoLayoutParams);
 		layout.addView(timer.getGlobalChronometer());
+		text.setText("powered by Olesen & Nielsen");
+		text.setTypeface(monacoTypeface);
+		text.setLayoutParams(textLayoutParams);
+		layout.addView(text);
+		
 		setContentView(layout);
 	}
 	
