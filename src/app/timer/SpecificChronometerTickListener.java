@@ -11,7 +11,6 @@ public class SpecificChronometerTickListener implements Chronometer.OnChronomete
 	int beepInterval;
 	boolean sound;
 	int formats;
-	static MediaPlayer soundPlayer; 
 	Context context;
 
 	public SpecificChronometerTickListener(Context context, int beepInterval, boolean sound, int formats) {
@@ -19,7 +18,6 @@ public class SpecificChronometerTickListener implements Chronometer.OnChronomete
 		this.sound = sound;
 		this.formats = formats;
 		this.context = context;
-		SpecificChronometerTickListener.soundPlayer = MediaPlayer.create(context, R.raw.silvaclock);
 	}
 
 	public void onChronometerTick(Chronometer chronometer) {
@@ -40,15 +38,7 @@ public class SpecificChronometerTickListener implements Chronometer.OnChronomete
 		}
 
 		if(sound && (((SystemClock.elapsedRealtime() - chronometer.getBase())/1000) + 5) % beepInterval == 0) {
-			soundPlayer.start();
+			TimerApplication.soundPlayer.start();
 		}      
-	}
-
-	public static boolean releaseMedia() {
-		if(soundPlayer != null) {
-			soundPlayer.release();
-			return true;
-		}
-		else return false;
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Calendar;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.media.MediaPlayer;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.widget.Chronometer;
@@ -28,6 +29,7 @@ public class TimerApplication extends Application implements OnSharedPreferenceC
 	private boolean sound;
 	private boolean realTime;
 	private int beepTime;
+	static MediaPlayer soundPlayer; 
 
 	/**
 	 * This method is only called once at the initiation of the app
@@ -37,6 +39,7 @@ public class TimerApplication extends Application implements OnSharedPreferenceC
 		super.onCreate();
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
+		soundPlayer = MediaPlayer.create(getBaseContext(), R.raw.silvaclock);
 		realTime = true;
 		global_chrono = new Chronometer(getBaseContext());
 		initiateClock();
@@ -73,7 +76,6 @@ public class TimerApplication extends Application implements OnSharedPreferenceC
 		beepTime = beepTimeArray[Integer.parseInt(prefs.getString("beep_interval", "2"))];
 		formats = Integer.parseInt(prefs.getString("format", "2"));
 		sound = !prefs.getBoolean("mute" , false);
-		SpecificChronometerTickListener.releaseMedia();
 		global_chrono.setOnChronometerTickListener(new SpecificChronometerTickListener(getBaseContext(), beepTime, sound, formats));
 	}
 	
