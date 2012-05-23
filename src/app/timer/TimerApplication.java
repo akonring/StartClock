@@ -33,7 +33,6 @@ public class TimerApplication extends Application implements OnSharedPreferenceC
 
 	/**
 	 * This method is only called once at the initiation of the app
-	 * 
 	 */
 	public void onCreate() {
 		super.onCreate();

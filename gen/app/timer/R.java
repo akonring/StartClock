@@ -25,19 +25,17 @@ public final class R {
         public static final int ic_menu_edit=0x7f020005;
         public static final int ic_menu_help=0x7f020006;
         public static final int ic_menu_view=0x7f020007;
-        public static final int logo114=0x7f020008;
-        public static final int logo57=0x7f020009;
+        public static final int logo57=0x7f020008;
+        public static final int logoandroid=0x7f020009;
     }
     public static final class id {
-        public static final int chrono=0x7f090000;
-        public static final int exit=0x7f090004;
-        public static final int prefTimePicker=0x7f090001;
-        public static final int prefs=0x7f090003;
-        public static final int real_time_button=0x7f090002;
+        public static final int exit=0x7f090003;
+        public static final int prefTimePicker=0x7f090000;
+        public static final int prefs=0x7f090002;
+        public static final int real_time_button=0x7f090001;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int time_preference=0x7f030001;
+        public static final int time_preference=0x7f030000;
     }
     public static final class menu {
         public static final int menu=0x7f080000;
