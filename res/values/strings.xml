@@ -43,4 +43,9 @@
     <string name="about">About</string>
     <string name="about_summary">Information about StartClock</string>
 
+<!-- This holds the version information -->    
+	<string name="version_code">1</string>
+	<string name="version_name">Version 1.1.1</string>
+	
+
 </resources>

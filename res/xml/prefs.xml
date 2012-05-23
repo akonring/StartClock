@@ -62,7 +62,6 @@
    <ListPreference
        android:key="version_build"
        android:enabled="false"
-       android:title="version 1.01"
-       android:summary="build 3"  /> 
+       android:title="@string/version_name"  /> 
    </PreferenceCategory>  
 </PreferenceScreen>

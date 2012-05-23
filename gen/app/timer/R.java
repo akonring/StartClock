@@ -77,6 +77,10 @@ public final class R {
         public static final int time_settings_summary=0x7f070004;
         public static final int title_exit=0x7f070002;
         public static final int title_prefs=0x7f070001;
+        /**  This holds the version information 
+         */
+        public static final int version_code=0x7f07001b;
+        public static final int version_name=0x7f07001c;
     }
     public static final class xml {
         public static final int prefs=0x7f040000;
