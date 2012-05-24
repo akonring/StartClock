@@ -1,4 +1,4 @@
-package app.timer;
+package app.startclock;
 
 import java.util.Calendar;
 
@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.widget.Chronometer;
+import app.startclock.R;
 
 /**
  * The main application class where the chronometer is situated.
@@ -34,12 +35,13 @@ public class TimerApplication extends Application implements OnSharedPreferenceC
 	/**
 	 * This method is only called once at the initiation of the app
 	 */
+	@Override
 	public void onCreate() {
 		super.onCreate();
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
 		soundPlayer = MediaPlayer.create(getBaseContext(), R.raw.silvaclock);
-		realTime = true;
+		realTime = prefs.getBoolean("real_time", true);
 		global_chrono = new Chronometer(getBaseContext());
 		initiateClock();
 	}
@@ -49,6 +51,7 @@ public class TimerApplication extends Application implements OnSharedPreferenceC
 	 * Some of the changes are dealt with here other screen related stuff
 	 * in the onResume in TimerActivity
 	 */
+	@Override
 	@SuppressWarnings("deprecation")
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 		realTime = prefs.getBoolean("real_time", true);

@@ -1,21 +1,18 @@
-package app.timer;
+package app.startclock;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import app.startclock.R;
 
 /** 
  * This class is controlling the main view of the application.
@@ -38,6 +35,7 @@ public class TimerActivity extends Activity {
 	 * GlobalChronometer cannot be a child to two parents and that is why we have
 	 * to remove the child if it is there.
 	 */
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -51,8 +49,8 @@ public class TimerActivity extends Activity {
 			((ViewGroup) timer.getGlobalChronometer().getParent()).removeView(timer.getGlobalChronometer());
 		}
 
-		RelativeLayout.LayoutParams chronoLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams chronoLayoutParams = new RelativeLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 
 		chronoLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
 		
@@ -73,6 +71,7 @@ public class TimerActivity extends Activity {
 	/**
 	 * Used to inflate the menu using the menu.xml
 	 */
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
@@ -88,6 +87,7 @@ public class TimerActivity extends Activity {
 	 * All the screen related preferences are dealt with.
 	 * calls editListener to change Chronometer preferences
 	 */
+	@Override
 	public void onResume() {
 		super.onResume();
 		WindowManager.LayoutParams lp = getWindow().getAttributes();
@@ -110,9 +110,10 @@ public class TimerActivity extends Activity {
 	 * Call the preference menu or exit. Exit is a rough
 	 * execution - may have to ease up a little.. 
 	 */
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if(item.getItemId() == R.id.prefs) {
-			startActivityForResult(new Intent(this, app.timer.PrefsActivity.class), 0);
+			startActivityForResult(new Intent(this, app.startclock.PrefsActivity.class), 0);
 		}
 		else if(item.getItemId() == R.id.exit) {
 			android.os.Process.killProcess(android.os.Process.myPid());

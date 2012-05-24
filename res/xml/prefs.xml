@@ -4,7 +4,7 @@
         android:key="time_settings"
         android:title="@string/time_settings"
         android:summary="@string/time_settings_summary">
-    	<app.timer.TimePreference
+    	<app.startclock.TimePreference
             android:key="synchronize"
 	    	android:title="@string/synchronize" 
 	       	android:summary="@string/synchronize_summary" 

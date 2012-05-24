@@ -16,8 +16,7 @@
       android:layout_width="175dp"
       android:layout_height="wrap_content"
       android:textOn="@string/synchronize_real_time"
-      android:textOff="@string/synchronize_manual"
-      android:layout_centerInParent="true"
-       />
+      android:textOff="@string/synchronize_real_time"
+      android:layout_centerInParent="true" />
 </RelativeLayout>          
 </LinearLayout>

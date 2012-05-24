@@ -1,9 +1,7 @@
-package app.timer;
+package app.startclock;
 
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.os.SystemClock;
-import android.util.Log;
 import android.widget.Chronometer;
 
 public class SpecificChronometerTickListener implements Chronometer.OnChronometerTickListener {
@@ -19,9 +17,33 @@ public class SpecificChronometerTickListener implements Chronometer.OnChronomete
 		this.formats = formats;
 		this.context = context;
 	}
+	
+	public String padWithZeroes(CharSequence seq) {
+		switch(seq.length()) {
+		case 2 : seq = "00:00:" + seq;
+		break;
+		case 4 : seq = "00:0" + seq;
+        break;
+		case 5 : seq = "00:" + seq; 
+		break;
+		case 6 : seq = "00" + seq;
+		break;
+		case 7: seq = "0" + seq;
+        }
+		return seq.toString();
+	}
 
+	@Override
 	public void onChronometerTick(Chronometer chronometer) {
-		CharSequence text = chronometer.getText();
+		
+		String text = padWithZeroes(chronometer.getText());
+		
+		int hours = Integer.valueOf(text.substring(0, 2));
+		
+		text = String.valueOf(hours % 24) + text.substring(2, text.length());  
+		
+		text = padWithZeroes(text);
+        
 		switch(formats) {		       
 		case 1 : chronometer.setText(text.subSequence(text.length()-2, text.length()));
 		chronometer.setTextSize(120);
@@ -32,7 +54,8 @@ public class SpecificChronometerTickListener implements Chronometer.OnChronomete
 		case 3 : chronometer.setText(text.subSequence(0, text.length()-6));
 		chronometer.setTextSize(120);
 		break;
-		default : chronometer.setText(text);
+		default : 
+		chronometer.setText(text);
 		chronometer.setTextSize(80);
 		break;
 		}

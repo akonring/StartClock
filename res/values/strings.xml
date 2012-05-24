@@ -22,7 +22,6 @@
     <string name="synchronize_set_button">Set Clock</string>
     <string name="synchronize_cancel_button">Cancel</string>
     <string name="synchronize_real_time">Real Time</string>
-    <string name="synchronize_manual">Manual Setting</string>
     
     
     <string name="mute">Mute</string>
@@ -35,7 +34,7 @@
     <string name="format_summary">Choose your display formats</string>
     
     <string name="indigo">Indigo Mode</string>
-    <string name="indigo_summary">Switch to night mode</string>
+    <string name="indigo_summary">Switch to bright screen</string>
     
 	<string name="beep_interval">Beep Interval</string>
     <string name="beep_interval_summary">Set the beep interval for the clock</string>
@@ -44,8 +43,7 @@
     <string name="about_summary">Information about StartClock</string>
 
 <!-- This holds the version information -->    
-	<string name="version_code">1</string>
-	<string name="version_name">Version 1.1.1</string>
+	<string name="version_name">Version 1.1.4</string>
 	
 
 </resources>
